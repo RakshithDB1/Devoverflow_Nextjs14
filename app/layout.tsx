@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
