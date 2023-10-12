@@ -9,30 +9,46 @@ export const getTimestamp = (createdAt: Date): string => {
   const now = new Date();
   const timeDifference = now.getTime() - createdAt.getTime();
 
-  // Define time units in milliseconds
+  // Define time intervals in milliseconds
   const minute = 60 * 1000;
   const hour = 60 * minute;
   const day = 24 * hour;
+  const week = 7 * day;
   const month = 30 * day;
   const year = 365 * day;
 
   if (timeDifference < minute) {
-    const secondsAgo = Math.round(timeDifference / 1000);
-    return `${secondsAgo} second${secondsAgo !== 1 ? "s" : ""} ago`;
+    const seconds = Math.floor(timeDifference / 1000);
+    return `${seconds} ${seconds === 1 ? "second" : "seconds"} ago`;
   } else if (timeDifference < hour) {
-    const minutesAgo = Math.round(timeDifference / minute);
-    return `${minutesAgo} minute${minutesAgo !== 1 ? "s" : ""} ago`;
+    const minutes = Math.floor(timeDifference / minute);
+    return `${minutes} ${minutes === 1 ? "minute" : "minutes"} ago`;
   } else if (timeDifference < day) {
-    const hoursAgo = Math.round(timeDifference / hour);
-    return `${hoursAgo} hour${hoursAgo !== 1 ? "s" : ""} ago`;
+    const hours = Math.floor(timeDifference / hour);
+    return `${hours} ${hours === 1 ? "hour" : "hours"} ago`;
+  } else if (timeDifference < week) {
+    const days = Math.floor(timeDifference / day);
+    return `${days} ${days === 1 ? "day" : "days"} ago`;
   } else if (timeDifference < month) {
-    const daysAgo = Math.round(timeDifference / day);
-    return `${daysAgo} day${daysAgo !== 1 ? "s" : ""} ago`;
+    const weeks = Math.floor(timeDifference / week);
+    return `${weeks} ${weeks === 1 ? "week" : "weeks"} ago`;
   } else if (timeDifference < year) {
-    const monthsAgo = Math.round(timeDifference / month);
-    return `${monthsAgo} month${monthsAgo !== 1 ? "s" : ""} ago`;
+    const months = Math.floor(timeDifference / month);
+    return `${months} ${months === 1 ? "month" : "months"} ago`;
   } else {
-    const yearsAgo = Math.round(timeDifference / year);
-    return `${yearsAgo} year${yearsAgo !== 1 ? "s" : ""} ago`;
+    const years = Math.floor(timeDifference / year);
+    return `${years} ${years === 1 ? "year" : "years"} ago`;
+  }
+};
+
+export const formatAndDivideNumber = (num: number): string => {
+  if (num >= 1000000) {
+    const formattedNum = (num / 1000000).toFixed(1);
+    return `${formattedNum}M`;
+  } else if (num >= 1000) {
+    const formattedNum = (num / 1000).toFixed(1);
+    return `${formattedNum}K`;
+  } else {
+    return num.toString();
   }
 };
