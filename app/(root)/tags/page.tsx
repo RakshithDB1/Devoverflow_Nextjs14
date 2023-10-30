@@ -1,13 +1,24 @@
-// import UserCard from "@/components/cards/UserCard";
 import Filter from "@/components/shared/Filter";
 import NoResult from "@/components/shared/NoResult";
+import Pagination from "@/components/shared/Pagination";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
-import { UserFilters } from "@/constants/filters";
+import { TagFilters } from "@/constants/filters";
 import { getAllTags } from "@/lib/actions/tag.actions";
+import { SearchParamsProps } from "@/types";
 import Link from "next/link";
 
-const Page = async () => {
-  const result = await getAllTags({});
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tags | Dev Overflow",
+};
+
+const Page = async ({ searchParams }: SearchParamsProps) => {
+  const result = await getAllTags({
+    searchQuery: searchParams.q,
+    filter: searchParams.filter,
+    page: searchParams.page ? +searchParams.page : 1,
+  });
 
   return (
     <>
@@ -17,13 +28,13 @@ const Page = async () => {
         <LocalSearchbar
           route="/tags"
           iconPosition="left"
-          imgsrc="/assets/icons/search.svg"
+          imgSrc="/assets/icons/search.svg"
           placeholder="Search for tags"
           otherClasses="flex-1"
         />
 
         <Filter
-          filters={UserFilters}
+          filters={TagFilters}
           otherClasses="min-h-[56px] sm:min-w-[170px]"
         />
       </div>
@@ -61,6 +72,13 @@ const Page = async () => {
           />
         )}
       </section>
+
+      <div className="mt-10">
+        <Pagination
+          pageNumber={searchParams?.page ? +searchParams.page : 1}
+          isNext={result.isNext}
+        />
+      </div>
     </>
   );
 };

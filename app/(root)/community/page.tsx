@@ -1,12 +1,23 @@
 import UserCard from "@/components/cards/UserCard";
 import Filter from "@/components/shared/Filter";
+import Pagination from "@/components/shared/Pagination";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { UserFilters } from "@/constants/filters";
 import { getAllUsers } from "@/lib/actions/user.action";
+import { SearchParamsProps } from "@/types";
 import Link from "next/link";
+import type { Metadata } from "next";
 
-const Page = async () => {
-  const result = await getAllUsers({});
+export const metadata: Metadata = {
+  title: "Community | Dev Overflow",
+};
+
+const Page = async ({ searchParams }: SearchParamsProps) => {
+  const result = await getAllUsers({
+    searchQuery: searchParams.q,
+    filter: searchParams.filter,
+    page: searchParams.page ? +searchParams.page : 1,
+  });
 
   return (
     <>
@@ -16,7 +27,7 @@ const Page = async () => {
         <LocalSearchbar
           route="/community"
           iconPosition="left"
-          imgsrc="/assets/icons/search.svg"
+          imgSrc="/assets/icons/search.svg"
           placeholder="Search for amazing minds"
           otherClasses="flex-1"
         />
@@ -39,6 +50,13 @@ const Page = async () => {
           </div>
         )}
       </section>
+
+      <div className="mt-10">
+        <Pagination
+          pageNumber={searchParams?.page ? +searchParams.page : 1}
+          isNext={result.isNext}
+        />
+      </div>
     </>
   );
 };
