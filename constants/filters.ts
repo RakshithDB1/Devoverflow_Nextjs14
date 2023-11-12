@@ -39,3 +39,26 @@ export const GlobalSearchFilters = [
   { name: "User", value: "user" },
   { name: "Tag", value: "tag" },
 ];
+
+export const CitySearchFilters = [
+  {
+    name: "Delhi",
+    value: "New Delhi, India",
+  },
+  {
+    name: "Mumbai",
+    value: "Mumbai, India",
+  },
+  {
+    name: "Bangalore",
+    value: "Bangalore, India",
+  },
+  {
+    name: "Kolkata",
+    value: "Kolkata, India",
+  },
+  {
+    name: "Chennai",
+    value: "Chennai, India",
+  },
+];
