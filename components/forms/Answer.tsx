@@ -82,6 +82,7 @@ const Answer = ({ question, questionId, authorId }: Props) => {
       // Convert plain text to HTML format
 
       const formattedAnswer = aiAnswer.reply.replace(/\n/g, "<br />");
+      console.log("AI Answer" + formattedAnswer);
 
       if (editorRef.current) {
         const editor = editorRef.current as any;
