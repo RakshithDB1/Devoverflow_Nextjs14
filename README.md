@@ -2,7 +2,7 @@
 
 <!-- GitHub badges -->
 
-![demo](https://ibb.co/bLf5nb1)
+![demo](https://i.ibb.co/Y8rBG02/Devover-Flow-Thumbnail.png)
 
 ## 🌐 Live Demo
 
