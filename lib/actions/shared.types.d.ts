@@ -2,6 +2,22 @@ import { Schema } from "mongoose";
 
 import { IUser } from "@/mongodb";
 
+interface OptionalPage {
+  page?: number;
+}
+
+interface OptionalPageSize {
+  pageSize?: number;
+}
+
+interface OptionalSearch {
+  searchQuery?: string;
+}
+
+interface OptionalFilter {
+  filter?: string;
+}
+
 export interface CreateAnswerParams {
   content: string;
   author: string; // User ID
@@ -156,4 +172,23 @@ export interface GetUserStatsParams {
 
 export interface DeleteUserParams {
   clerkId: string;
+}
+interface Searchable
+  extends OptionalPage,
+    OptionalPageSize,
+    OptionalSearch,
+    OptionalFilter {}
+
+export interface GetJobsParams extends Searchable {
+  location?: string;
+  remote?: boolean | string;
+  wage?: boolean | string;
+  skills?: boolean | string;
+}
+
+export interface GetFormattedSalaryParams {
+  min: number;
+  max: number;
+  currency: string;
+  period: string;
 }
