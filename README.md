@@ -13,218 +13,135 @@ Explore the live demonstration of the project: [nextjs14-devoverflow](https://st
 **DevOverflow**, a sophisticated Next.js 14 application, is meticulously designed as a comprehensive Q&A platform catering specifically to developers. This platform functions as a dynamic hub where developers, regardless of their skill levels or expertise, converge to seek guidance, exchange insights, and foster a collaborative learning environment
 
 <details><summary><b>Project Folder Structure</b></summary>
-```
-└── 📁nextjs13
-    └── .env.local
-    └── .eslintrc.json
-    └── 📁app
-        └── 📁(auth)
-            └── 📁sign-in
-                └── 📁[[...sign-in]]
-                    └── page.tsx
-            └── 📁sign-up
-                └── 📁[[...sign-up]]
-                    └── page.tsx
-        └── 📁(root)
-            └── 📁(home)
-                └── loading.tsx
-                └── page.tsx
-            └── 📁ask-question
-                └── page.tsx
-            └── 📁collection
-                └── loading.tsx
-                └── page.tsx
-            └── 📁community
-                └── loading.tsx
-                └── page.tsx
-            └── 📁jobs
-                └── loading.tsx
-                └── page.tsx
-            └── 📁profile
-                └── 📁edit
-                    └── page.tsx
-                └── 📁[id]
-                    └── loading.tsx
-                    └── page.tsx
-            └── 📁question
-                └── 📁edit
-                    └── 📁[id]
-                        └── page.tsx
-                └── 📁[id]
-                    └── page.tsx
-            └── 📁tags
-                └── loading.tsx
-                └── page.tsx
-                └── 📁[id]
-                    └── loading.tsx
-                    └── page.tsx
-        └── 📁api
-            └── 📁chatgpt
-            └── 📁jobSearch
-            ├── webhook
-        └── favicon.ico
-        └── globals.css
-    └── 📁components
-        └── 📁cards
-            └── AnswerCard.tsx
-            └── JobCard.tsx
-            └── QuestionCard.tsx
-            └── UserCard.tsx
-        └── 📁forms
-            └── Answer.tsx
-            └── Profile.tsx
-            └── Question.tsx
-        └── 📁Home
-            └── HomeFilters.tsx
-        └── 📁jobs
-            └── JobBadge.tsx
-        └── 📁shared
-            └── AllAnswers.tsx
-            └── AnswersTab.tsx
-            └── EditDeleteAction.tsx
-            └── Filter.tsx
-            └── Filters.tsx
-            └── LeftSidebar.tsx
-            └── Metric.tsx
-            └── 📁navbar
-                └── MobileNav.tsx
-                └── Navbar.tsx
-                └── Theme.tsx
-            └── NoResult.tsx
-            └── Pagination.tsx
-            └── ParseHTML.tsx
-            └── ProfileLink.tsx
-            └── QuestionTab.tsx
-            └── RenderTag.tsx
-            └── RightSidebar.tsx
-            └── 📁search
-                └── GlobalFilters.tsx
-                └── GlobalResult.tsx
-                └── GlobalSearch.tsx
-                └── LocalSearchbar.tsx
-            └── Stats.tsx
-            └── Switcher.tsx
-            └── Votes.tsx
-        └── 📁ui
-            └── badge.tsx
-            └── button.tsx
-            └── form.tsx
-            └── input.tsx
-            └── label.tsx
-            └── menubar.tsx
-            └── select.tsx
-            └── sheet.tsx
-            └── skeleton.tsx
-            └── switch.tsx
-            └── tabs.tsx
-            └── textarea.tsx
-            └── toast.tsx
-            └── toaster.tsx
-            └── use-toast.ts
-    └── components.json
-    └── 📁constants
-        └── filters.ts
-        └── index.ts
-    └── 📁content
-        └── countries.json
-        └── jsearch.json
-    └── 📁context
-        └── ThemeProvider.tsx
-    └── 📁database
-        └── answer.model.ts
-        └── interaction.model.ts
-        └── question.model.ts
-        └── tag.model.ts
-        └── user.model.ts
-    └── 📁lib
-        └── 📁actions
-            └── answer.action.ts
-            └── general.action.ts
-            └── interaction.action.ts
-            └── job.action.ts
-            └── question.action.ts
-            └── shared.types.d.ts
-            └── tag.actions.ts
-            └── user.action.ts
-        └── mongoose.ts
-        └── utils.ts
-        └── validations.ts
-    └── middleware.ts
-    └── next-env.d.ts
-    └── next.config.js
-    └── package-lock.json
-    └── package.json
-    └── postcss.config.js
-    └── 📁public
-        └── 📁assets
-            └── 📁icons
-                └── account.svg
-                └── arrow-left.svg
-                └── arrow-right.svg
-                └── arrow-up-right.svg
-                └── au.svg
-                └── avatar.svg
-                └── bronze-medal.svg
-                └── calendar.svg
-                └── carbon-location.svg
-                └── chevron-down.svg
-                └── chevron-right.svg
-                └── clock-2.svg
-                └── clock.svg
-                └── close.svg
-                └── computer.svg
-                └── currency-dollar-circle.svg
-                └── downvote.svg
-                └── downvoted.svg
-                └── edit.svg
-                └── eye.svg
-                └── gold-medal.svg
-                └── hamburger.svg
-                └── home.svg
-                └── job-search.svg
-                └── like.svg
-                └── link.svg
-                └── location.svg
-                └── message.svg
-                └── mingcute-down-line.svg
-                └── moon.svg
-                └── question.svg
-                └── search.svg
-                └── sign-up.svg
-                └── silver-medal.svg
-                └── star-filled.svg
-                └── star-red.svg
-                └── star.svg
-                └── stars.svg
-                └── suitcase.svg
-                └── sun.svg
-                └── tag.svg
-                └── trash.svg
-                └── upvote.svg
-                └── upvoted.svg
-                └── user.svg
-                └── users.svg
-            └── 📁images
-                └── auth-dark.png
-                └── auth-light.png
-                └── dark-illustration.png
-                └── default-logo.svg
-                └── light-illustration.png
-                └── logo-dark.svg
-                └── logo-light.svg
-                └── logo.png
-                └── site-logo.svg
-        └── next.svg
-        └── vercel.svg
-    └── README.md
-    └── settings.json
-    └── 📁styles
-        └── prism.css
-        └── theme.css
-    └── tailwind.config.ts
-    └── tsconfig.json
-    └── 📁types
-        └── index.d.ts
+
+```bash
+Devoverflow_Nextjs14/
+├── .env.local
+├── .eslintrc.json
+├── app/
+│   ├── auth/
+│   │   ├── sign-in/
+│   │   │   └── [...sign-in]/
+│   │   │       └── page.tsx
+│   │   └── sign-up/
+│   │       └── [...sign-up]/
+│   │           └── page.tsx
+│   ├── root/
+│   │   ├── home/
+│   │   │   ├── loading.tsx
+│   │   │   └── page.tsx
+│   │   ├── ask-question/
+│   │   │   └── page.tsx
+│   │   ├── collection/
+│   │   │   ├── loading.tsx
+│   │   │   └── page.tsx
+│   │   ├── community/
+│   │   │   ├── loading.tsx
+│   │   │   └── page.tsx
+│   │   ├── jobs/
+│   │   │   ├── loading.tsx
+│   │   │   └── page.tsx
+│   │   ├── profile/
+│   │   │   ├── edit/
+│   │   │   │   └── page.tsx
+│   │   │   └── [id]/
+│   │   │       └── loading.tsx
+│   │   │       └── page.tsx
+│   │   └── question/
+│   │       ├── edit/
+│   │       │   └── [id]/
+│   │       │       └── page.tsx
+│   │       └── [id]/
+│   │           └── page.tsx
+│   ├── api/
+│   │   └── chatgpt/
+│   │       └── jobSearch/
+│   │           ├── webhook/
+│   │           └── favicon.ico
+│   ├── globals.css
+│   └── components/
+│       ├── cards/
+│       │   ├── AnswerCard.tsx
+│       │   ├── JobCard.tsx
+│       │   ├── QuestionCard.tsx
+│       │   └── UserCard.tsx
+│       ├── forms/
+│       │   ├── Answer.tsx
+│       │   ├── Profile.tsx
+│       │   └── Question.tsx
+│       ├── Home/
+│       │   └── HomeFilters.tsx
+│       ├── jobs/
+│       │   └── JobBadge.tsx
+│       └── shared/
+│           ├── AllAnswers.tsx
+│           ├── AnswersTab.tsx
+│           ├── EditDeleteAction.tsx
+│           ├── Filter.tsx
+│           ├── Filters.tsx
+│           ├── LeftSidebar.tsx
+│           ├── Metric.tsx
+│           ├── Navbar/
+│           │   ├── MobileNav.tsx
+│           │   ├── Navbar.tsx
+│           │   └── Theme.tsx
+│           ├── NoResult.tsx
+│           ├── Pagination.tsx
+│           ├── ParseHTML.tsx
+│           ├── ProfileLink.tsx
+│           ├── QuestionTab.tsx
+│           ├── RenderTag.tsx
+│           └── RightSidebar.tsx
+├── components.json
+├── constants/
+│   ├── filters.ts
+│   └── index.ts
+├── content/
+│   ├── countries.json
+│   └── jsearch.json
+├── context/
+│   └── ThemeProvider.tsx
+├── database/
+│   ├── answer.model.ts
+│   ├── interaction.model.ts
+│   ├── question.model.ts
+│   ├── tag.model.ts
+│   └── user.model.ts
+├── lib/
+│   ├── actions/
+│   │   ├── answer.action.ts
+│   │   ├── general.action.ts
+│   │   ├── interaction.action.ts
+│   │   ├── job.action.ts
+│   │   ├── question.action.ts
+│   │   ├── shared.types.d.ts
+│   │   ├── tag.actions.ts
+│   │   └── user.action.ts
+│   ├── mongoose.ts
+│   ├── utils.ts
+│   ├── validations.ts
+│   ├── middleware.ts
+│   └── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public/
+│   └── assets/
+│       ├── icons/
+│       │   ├── (various SVG and image files)
+│       └── images/
+│           ├── (various image files)
+├── README.md
+├── settings.json
+├── styles/
+│   ├── prism.css
+│   ├── theme.css
+│   └── tailwind.config.ts
+├── tsconfig.json
+└── types/
+    └── index.d.ts
+
 ```
 
 </details>
